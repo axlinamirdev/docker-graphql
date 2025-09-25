@@ -26,6 +26,16 @@ jobs:
         echo "Iniciando login" 
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         echo "Fin del login"
+
+    - name: Build Docker Image
+      run: |
+        echo "Construyendo imagen" 
+        docker build -t teremir90/docker-graphql:0.0.2 .
+
+    - name: Push Docker Image
+      run: |
+        docker push teremir90/docker-graphql:0.0.2 .
+      
         
         
     # - name: Build the Docker image
